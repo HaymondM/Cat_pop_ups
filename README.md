@@ -1,30 +1,29 @@
-# Overview
+# Cat Pop Up
 
-{Important!  Do not say in this section that this is college assignment.  Talk about what you are trying to accomplish as a software engineer to further your learning.}
+Please note that this program is for educational purposes only 
 
-{Provide a description the software that you wrote to demonstrate the Java language.}
+This program has the purpose of being fun. It pops up a window with a button. Next to the button is a timer. The longer a user waits to press the button, the bigger the surprise. When the button is pressed, images of cats are spread across the users screen. Important! You will have to use Task Manager to close the program.     
 
-{Describe your purpose for writing this software.}
-
-{Provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the software running and a walkthrough of the code.  Focus should be on sharing what you learned about the language syntax.}
-
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/E5M1e7yKdRY)
 
 # Development Environment
 
-{Describe the tools that you used to develop the software}
+Java Version 8
+Visual Studio Code
 
-{Describe the programming language that you used and any libraries.}
+Libraries:
+java.awt
+javax.swing
+java.util
+
 
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
-* [Web Site Name](http://url.link.goes.here)
-* [Web Site Name](http://url.link.goes.here)
+* [javax.swing Class JFrame](https://docs.oracle.com/javase/7/docs/api/javax/swing/JFrame.html)
+* [Java tutorials](https://docs.oracle.com/javase/tutorial/)
 
 # Future Work
 
-{Make a list of things that you need to fix, improve, and add in the future.}
-* Item 1
-* Item 2
-* Item 3
+* Clean up the files and folders 
+* Organize a the main frame of the program better 
+* Fix the treading 
