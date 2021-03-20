@@ -1,19 +1,22 @@
 /*
     Marshall Haymond
-    1/1/17
+    1/05/2020
     Cat Button.java
     Pops up images of cats
  */
-package cat.button;
+//package cat.button;
 
 //imports
 import javax.swing.*;
 import java.awt.*;
+import java.util.*;
 import java.util.Random;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JDialog;
 import java.lang.*;
+import java.awt.Cursor;
+
  
 
 
@@ -23,39 +26,94 @@ public class CatButton
           
    JButton cat1;
    JFrame frame = new JFrame();
+   JLabel label1 = new JLabel("Timer:", JLabel.CENTER);
    
-   CatButton()
+   
+   CatButton() throws InterruptedException
    {
+    
     ImageIcon catImage = new ImageIcon("cat2.png"); 
     cat1 = new JButton(catImage);
     cat1.setRolloverIcon(new ImageIcon ("cat1.png"));
+    cat1.setPreferredSize(new Dimension(80, 80));
     frame.setLayout(new FlowLayout());
     
+    // creating Calendar object for the time
+    Calendar calendar = Calendar.getInstance();
+      
+
+    Toolkit toolkit = Toolkit.getDefaultToolkit();
+    Image image = toolkit.getImage("cat2.png");
+    Cursor c = toolkit.createCustomCursor(image , new Point(frame.getX(), 
+           frame.getY()), "img");
     
+    //set up the frame
     frame.setVisible(true);
-    frame.setSize(200,150);
+    frame.setSize(250,250);
     frame.setLocationRelativeTo(null);
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+   // frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); //DO_NOTHING_ON_CLOSE
+    frame.setCursor(c);
+    frame.getContentPane().setBackground(Color.darkGray);
     JPanel panel = new JPanel();
     frame.add(panel);
+    label1.setForeground(Color.RED);
+    frame.add(label1);
     frame.setResizable(false);
     panel.add(cat1); //adds button to panel
 
-   
-   
-    for (int i = 0; i < 10; i++)
-    {
-    cat1.addActionListener(new Action());//makes button do somthing
-    }
+    
+     // int count = 0;
+      //while(count < 10){
+      
+      
+     // count+= 1;
+     // }
+      //int seconds = calendar.get(Calendar.SECOND);
+      //String s=Integer.toString(seconds);
+      //label1.setText(s);
+    
+      
+      int numcats = 0;
 
+      for(int i = 1; i <= 500; i++)
+      {   
+        String s=Integer.toString(i);
+        label1.setText(s);
+        numcats = i;
+        Thread.sleep(1000);
+        if (cat1.getModel().isPressed()){
+            System.out.println("worked");
+            break;
+        }
+    }
+      
+
+    /*  while(!cat1.getModel().isPressed())
+      {
+        int seconds = calendar.get(Calendar.SECOND);
+        String s=Integer.toString(seconds);
+
+            seconds +=1;
+            label1.setText(s);
+            System.out.println(seconds);
+        }
+   */
+
+      for (int i = 0; i < numcats; i++)
+      {
+        cat1.addActionListener(new Action());//makes button do the action
+      }
    }
     
     
     
     //main
-    public static void main(String[] args) 
+    public static void main(String[] args) throws InterruptedException
     {
+
+      
       new CatButton();//main exicution 
+
 
     }
     
@@ -65,7 +123,6 @@ public class CatButton
     public void actionPerformed (ActionEvent e)
     {
         //set vars
-        
         Random rand1 = new Random(); //sets the frame to popo up somewhere random
         System.out.println(rand1); //test
         JDialog dialog = new JDialog();
@@ -80,12 +137,7 @@ public class CatButton
         dialog.add(lbl);
         dialog.pack();
         dialog.setVisible(true);
-        dialog.setLocation(rand1.nextInt(1250), rand1.nextInt(800));
-        
-        
-        
-        
+        dialog.setLocation(rand1.nextInt(1250), rand1.nextInt(800));        
     }
    }
 }
-
