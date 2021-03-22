@@ -1,32 +1,27 @@
 /*
     Marshall Haymond
-    1/05/2020
+    3/20/2021
     Cat Button.java
     Pops up images of cats
  */
-//package cat.button;
 
 //imports
 import javax.swing.*;
 import java.awt.*;
-import java.util.*;
 import java.util.Random;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JDialog;
-import java.lang.*;
 import java.awt.Cursor;
-
- 
-
 
 
 public class CatButton 
         {
           
    JButton cat1;
-   JFrame frame = new JFrame();
-   JLabel label1 = new JLabel("Timer:", JLabel.CENTER);
+   JFrame frame = new JFrame("Cat pop!");
+   JLabel label1 = new JLabel("Timer:");
+   
    
    
    CatButton() throws InterruptedException
@@ -35,11 +30,12 @@ public class CatButton
     ImageIcon catImage = new ImageIcon("cat2.png"); 
     cat1 = new JButton(catImage);
     cat1.setRolloverIcon(new ImageIcon ("cat1.png"));
-    cat1.setPreferredSize(new Dimension(80, 80));
+    cat1.setPreferredSize(new Dimension(500, 80));
+    cat1.setBackground(Color.white);
     frame.setLayout(new FlowLayout());
     
-    // creating Calendar object for the time
-    Calendar calendar = Calendar.getInstance();
+    
+
       
 
     Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -49,17 +45,20 @@ public class CatButton
     
     //set up the frame
     frame.setVisible(true);
-    frame.setSize(250,250);
+    frame.setSize(600,600);
+    frame.setIconImage(image);
     frame.setLocationRelativeTo(null);
-   // frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); //DO_NOTHING_ON_CLOSE
+    frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); //DO_NOTHING_ON_CLOSE
     frame.setCursor(c);
     frame.getContentPane().setBackground(Color.darkGray);
     JPanel panel = new JPanel();
+    Dimension size = label1.getPreferredSize();
     frame.add(panel);
     label1.setForeground(Color.RED);
-    frame.add(label1);
+    label1.setFont(new Font("Serif", Font.BOLD, 200));
     frame.setResizable(false);
     panel.add(cat1); //adds button to panel
+    frame.add(label1);
 
     
      // int count = 0;
@@ -80,7 +79,7 @@ public class CatButton
         String s=Integer.toString(i);
         label1.setText(s);
         numcats = i;
-        Thread.sleep(1000);
+        Thread.sleep(100);
         if (cat1.getModel().isPressed()){
             System.out.println("worked");
             break;
@@ -141,3 +140,4 @@ public class CatButton
     }
    }
 }
+
